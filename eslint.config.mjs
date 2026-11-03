@@ -1,21 +1,64 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import reactHooks from "eslint-plugin-react-hooks";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+export default tseslint.config(
   {
+    ignores: [
+      "dist/**",
+      "node_modules/**",
+      ".sanity/**",
+      "studio-dist/**",
+      "src/types/sanity.types.ts",
+      "schema.json",
+      "package-lock.json",
+    ],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: {
+        ...globals.browser,
+      },
+    },
+    plugins: {
+      "react-hooks": reactHooks,
+    },
     rules: {
-      "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+      ...reactHooks.configs.recommended.rules,
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" },
+      ],
     },
   },
-];
-
-export default eslintConfig;
+  {
+    files: [
+      "server/**/*.ts",
+      "tests/**/*.{ts,tsx}",
+      "vite.config.ts",
+      "sanity.config.ts",
+      "sanity.cli.ts",
+      "sanity/**/*.ts",
+      "scripts/**/*.mjs",
+    ],
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" },
+      ],
+    },
+  },
+);

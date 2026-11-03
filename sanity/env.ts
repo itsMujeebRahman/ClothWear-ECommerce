@@ -1,20 +1,27 @@
-export const apiVersion =
-  process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-05-20'
+/**
+ * Sanity Studio / CLI environment. These values are only read in Node (Studio
+ * config, schema extraction and TypeGen); they are never shipped to the
+ * storefront bundle.
+ */
+import "dotenv/config";
 
-export const dataset = assertValue(
-  process.env.NEXT_PUBLIC_SANITY_DATASET,
-  'Missing environment variable: NEXT_PUBLIC_SANITY_DATASET'
-)
-
-export const projectId = assertValue(
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
-)
-
-function assertValue<T>(v: T | undefined, errorMessage: string): T {
-  if (v === undefined) {
-    throw new Error(errorMessage)
+function required(name: string, fallbackName?: string): string {
+  const value =
+    process.env[name] ?? (fallbackName ? process.env[fallbackName] : undefined);
+  if (!value) {
+    throw new Error(`Missing environment variable: ${name}`);
   }
-
-  return v
+  return value;
 }
+
+export const apiVersion =
+  process.env.SANITY_API_VERSION ??
+  process.env.VITE_SANITY_API_VERSION ??
+  "2025-05-20";
+
+export const dataset = required("SANITY_DATASET", "VITE_SANITY_DATASET");
+
+export const projectId = required(
+  "SANITY_PROJECT_ID",
+  "VITE_SANITY_PROJECT_ID",
+);

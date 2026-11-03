@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
-import nextEnv from '@next/env';
-import { createClient } from 'next-sanity';
+import 'dotenv/config';
+import { createClient } from '@sanity/client';
 
 const dryRun = process.argv.includes('--dry-run');
 const unknownArgs = process.argv.slice(2).filter((arg) => arg !== '--dry-run');
@@ -57,14 +57,16 @@ async function main() {
     return;
   }
 
-  nextEnv.loadEnvConfig(process.cwd(), true);
-  const required = ['NEXT_PUBLIC_SANITY_PROJECT_ID', 'NEXT_PUBLIC_SANITY_DATASET', 'SANITY_API_TOKEN'];
-  const missing = required.filter((key) => !process.env[key]?.trim());
+  const projectId = process.env.SANITY_PROJECT_ID || process.env.VITE_SANITY_PROJECT_ID;
+  const dataset = process.env.SANITY_DATASET || process.env.VITE_SANITY_DATASET;
+  const apiVersion = process.env.SANITY_API_VERSION || process.env.VITE_SANITY_API_VERSION || '2025-05-20';
+  const required = { SANITY_PROJECT_ID: projectId, SANITY_DATASET: dataset, SANITY_API_TOKEN: process.env.SANITY_API_TOKEN };
+  const missing = Object.entries(required).filter(([, value]) => !value?.trim()).map(([key]) => key);
   if (missing.length) throw new Error(`Missing environment variables: ${missing.join(', ')}`);
   const client = createClient({
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-05-20',
+    projectId,
+    dataset,
+    apiVersion,
     token: process.env.SANITY_API_TOKEN,
     useCdn: false,
     perspective: 'raw',

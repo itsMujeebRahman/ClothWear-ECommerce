@@ -1,7 +1,6 @@
-'use client'
-
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `\app\studio\[[...tool]]\page.tsx` route
+ * This configuration is used by the standalone Sanity Studio (`npm run
+ * studio`). The storefront is a separate Vite SPA and does not mount Studio.
  */
 
 import {visionTool} from '@sanity/vision'

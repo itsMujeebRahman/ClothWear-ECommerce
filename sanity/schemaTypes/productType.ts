@@ -1,4 +1,4 @@
-import { TrolleyIcon } from "@sanity/icons";
+import { LuShoppingCart as TrolleyIcon } from "react-icons/lu";
 import { defineField, defineType } from "sanity";
 
 export const productType = defineType({
@@ -41,15 +41,18 @@ export const productType = defineType({
     }),
     defineField({
       name: "price",
-      title: "Product price",
+      title: "Original price",
       type: "number",
-      validation: (Rule) => Rule.required(),
+      description:
+        "The original/list price. The discount percentage is applied to this value.",
+      validation: (Rule) => Rule.required().min(0.01),
     }),
     defineField({
       name: "discount",
       title: "Discount percentage",
       type: "number",
-      validation: (Rule) => Rule.required(),
+      description: "Percentage off the original price (0-100).",
+      validation: (Rule) => Rule.required().min(0).max(100),
     }),
     defineField({
       name: "categories",
@@ -61,7 +64,9 @@ export const productType = defineType({
       name: "stock",
       title: "Stock",
       type: "number",
-      validation: (Rule) => Rule.min(0),
+      description:
+        "Available units. Products without a stock value cannot be purchased.",
+      validation: (Rule) => Rule.required().integer().min(0),
     }),
     defineField({
       name: "status",
@@ -100,9 +105,10 @@ export const productType = defineType({
     },
     prepare(selection) {
       const { title, subtitle, media } = selection;
-      const image = media && media[0];
+      const images = Array.isArray(media) ? media : [];
+      const image = images[0];
       return {
-        title: title,
+        title,
         subtitle: `$${subtitle}`,
         media: image,
       };

@@ -1,4 +1,4 @@
-import {TagIcon} from '@sanity/icons'
+import { LuTag as TagIcon } from "react-icons/lu";
 import {defineField, defineType} from 'sanity'
 
 export const categoryType = defineType({
