@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Men",
+    "slug": "men",
+    "description": "Everyday clothing and essentials for men."
+  },
+  {
+    "title": "Women",
+    "slug": "women",
+    "description": "Comfortable everyday styles for women."
+  },
+  {
+    "title": "Unisex",
+    "slug": "unisex",
+    "description": "Versatile clothing for everyone."
+  }
+]

@@ -19,7 +19,7 @@ const ProductCard = ({ product }: { product: Product }) => {
               height={500}
               alt="ProductImage"
               priority
-              className={`w-full h-72 object-contain overflow-hidden hoverEffect ${product?.stock !== 0 && "group-hover:scale-105"}`}
+              className={`w-full h-72 object-cover overflow-hidden hoverEffect ${product?.stock !== 0 && "group-hover:scale-105"}`}
             />
           </Link>
         )}

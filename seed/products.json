@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Classic Cotton T-Shirt",
+    "slug": "classic-cotton-t-shirt",
+    "intro": "Classic Cotton T-Shirt for comfortable everyday wear.",
+    "description": "A versatile classic cotton t-shirt designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 29,
+    "discount": 0,
+    "stock": 40,
+    "status": "new",
+    "variant": "tshirt",
+    "categorySlugs": [
+      "men"
+    ]
+  },
+  {
+    "name": "Everyday Denim Jacket",
+    "slug": "everyday-denim-jacket",
+    "intro": "Everyday Denim Jacket for comfortable everyday wear.",
+    "description": "A versatile everyday denim jacket designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 89,
+    "discount": 0,
+    "stock": 15,
+    "status": "hot",
+    "variant": "jacket",
+    "categorySlugs": [
+      "men"
+    ]
+  },
+  {
+    "name": "Slim Fit Chinos",
+    "slug": "slim-fit-chinos",
+    "intro": "Slim Fit Chinos for comfortable everyday wear.",
+    "description": "A versatile slim fit chinos designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 59,
+    "discount": 0,
+    "stock": 25,
+    "status": "new",
+    "variant": "pants",
+    "categorySlugs": [
+      "men"
+    ]
+  },
+  {
+    "name": "Weekend Cargo Shorts",
+    "slug": "weekend-cargo-shorts",
+    "intro": "Weekend Cargo Shorts for comfortable everyday wear.",
+    "description": "A versatile weekend cargo shorts designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 39,
+    "discount": 10,
+    "stock": 30,
+    "status": "sale",
+    "variant": "short",
+    "categorySlugs": [
+      "men"
+    ]
+  },
+  {
+    "name": "Relaxed Cotton T-Shirt",
+    "slug": "relaxed-cotton-t-shirt",
+    "intro": "Relaxed Cotton T-Shirt for comfortable everyday wear.",
+    "description": "A versatile relaxed cotton t-shirt designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 29,
+    "discount": 0,
+    "stock": 35,
+    "status": "new",
+    "variant": "tshirt",
+    "categorySlugs": [
+      "women"
+    ]
+  },
+  {
+    "name": "Cropped Denim Jacket",
+    "slug": "cropped-denim-jacket",
+    "intro": "Cropped Denim Jacket for comfortable everyday wear.",
+    "description": "A versatile cropped denim jacket designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 79,
+    "discount": 0,
+    "stock": 18,
+    "status": "hot",
+    "variant": "jacket",
+    "categorySlugs": [
+      "women"
+    ]
+  },
+  {
+    "name": "Wide Leg Trousers",
+    "slug": "wide-leg-trousers",
+    "intro": "Wide Leg Trousers for comfortable everyday wear.",
+    "description": "A versatile wide leg trousers designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 65,
+    "discount": 15,
+    "stock": 22,
+    "status": "sale",
+    "variant": "pants",
+    "categorySlugs": [
+      "women"
+    ]
+  },
+  {
+    "name": "Essential Pullover Hoodie",
+    "slug": "essential-pullover-hoodie",
+    "intro": "Essential Pullover Hoodie for comfortable everyday wear.",
+    "description": "A versatile essential pullover hoodie designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 55,
+    "discount": 0,
+    "stock": 28,
+    "status": "hot",
+    "variant": "hoodie",
+    "categorySlugs": [
+      "unisex"
+    ]
+  },
+  {
+    "name": "Oversized Graphic T-Shirt",
+    "slug": "oversized-graphic-t-shirt",
+    "intro": "Oversized Graphic T-Shirt for comfortable everyday wear.",
+    "description": "A versatile oversized graphic t-shirt designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 35,
+    "discount": 0,
+    "stock": 45,
+    "status": "new",
+    "variant": "tshirt",
+    "categorySlugs": [
+      "unisex"
+    ]
+  },
+  {
+    "name": "Comfort Jogger Pants",
+    "slug": "comfort-jogger-pants",
+    "intro": "Comfort Jogger Pants for comfortable everyday wear.",
+    "description": "A versatile comfort jogger pants designed for easy everyday styling. Pair it with your favorite wardrobe essentials.",
+    "price": 49,
+    "discount": 10,
+    "stock": 32,
+    "status": "sale",
+    "variant": "pants",
+    "categorySlugs": [
+      "unisex"
+    ]
+  }
+]
