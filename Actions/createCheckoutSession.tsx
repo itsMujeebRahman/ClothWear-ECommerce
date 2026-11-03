@@ -1,5 +1,4 @@
 "use server";
-import stripe from "@/lib/Stripe";
 import { CartItem } from "@/Store";
 import Stripe from "stripe";
 import { urlFor } from "@/sanity/lib/image";
@@ -21,6 +20,7 @@ export async function createCheckoutSession(
   metadata: Metadata
 ) {
   try {
+    const { default: stripe } = await import("@/lib/Stripe");
     const customers = await stripe.customers.list({
       email: metadata?.customerEmail,
       limit: 1,
